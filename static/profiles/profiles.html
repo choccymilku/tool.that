@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <link rel="icon" type="image/x-icon" href="./styles/icon.png">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/text.css">
+    <link rel="stylesheet" href="../styles/reactive.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+    <link rel="stylesheet" href="../fonts/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+<style>
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently */
+}
+
+.disabledrag {
+   -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+   -user-drag: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px; 
+}
+
+.clickable {display: block;}
+</style>
+
+</head>
+<body id="body" class="noselect">
+
+  <div id="search">
+    <div id="search_bar">
+
+      <a href="/">
+        <div class="tool_toolbar back"></div>
+      </a>
+
+      <div id="search_text">
+        <input id="search_input" type="text" placeholder="what platform?">
+      </div>
+
+      <div id="right_side">
+          <div class="tool_toolbar privacy"></div>
+          <div class="tool_toolbar terms"></div>
+      </div>
+
+    </div>
+</div>
+
+  <div id="main_wrapper">
+    <div id="main_scroll">
+      <div id="main">
+
+        <div class="block block_tool" id="twitter">
+          <div class="tool_platform twitter"></div>
+          <div class="tool_name">Twitter</div>
+        </div>
+
+       <!--  <div class="block block_tool" id="soundcloud">
+          <span class="tool_icon tool_soundcloud tool_profiles"></span>
+          <div class="tool_name">SoundCloud</div>
+          <div class="tool_supported">vid, images, profiles</div>
+        </div>
+
+        <div class="block block_tool" id="lastfm">
+          <span class="tool_icon tool_lastfm tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="spotify">
+          <span class="tool_icon tool_spotify tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="roblox">
+          <span class="tool_icon tool_roblox tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="mastodon">
+          <span class="tool_icon tool_mastodon tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="twitter">
+          <span class="tool_icon tool_twitter tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="twitch">
+          <span class="tool_icon tool_twitch tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="youtube">
+          <span class="tool_icon tool_youtube tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="instagram">
+          <span class="tool_icon tool_instagram tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="github">
+          <span class="tool_icon tool_github tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="reddit">
+          <span class="tool_icon tool_reddit tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="tiktok">
+          <span class="tool_icon tool_tiktok tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div>
+
+        <div class="block block_tool" id="steam">
+          <span class="tool_icon tool_steam tool_profiles"></span>
+          <div class="tool_name">Instagram</div>
+          <div class="tool_supported">get anyone's* profile from various social platforms</div>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../"></script>
+  <script src="../javascript/referer.js"></script>
+  <script src="../javascript/svgnator.js"></script>
+
+</body>
+</html>

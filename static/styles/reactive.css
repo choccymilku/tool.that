@@ -1,0 +1,113 @@
+@media only screen and (max-width: 550px) {
+
+  #main_wrapper {
+    height: calc(100% - 36px);
+  }
+  #right_wrapper {
+    width: calc(100% + 64px);
+    height: calc(100% - 62px);
+    margin-top: 6px;
+  }
+  #left_wrapper {
+    height: fit-content;
+    width: calc(100% - 92px);
+    margin-left: 68px;
+    position: absolute;
+    bottom: 6px;
+  }
+  #settings {
+    height: 50px;
+    width: 50px;
+    bottom: -18px;
+    z-index: 99999999;
+  }
+  #settings_button {
+    height: 50px;
+    width: 50px;
+  }
+  #settings_but_spin {
+    height: 42px;
+    width: 42px;
+  }
+  #left {
+    display: flex;
+    margin-bottom: -6px;
+  }
+  .icon-style, .icon-loader-style {
+    height: 38px !important;
+    width: 38px !important;
+  }
+  #accounts {
+    display: flex;
+    min-height: inherit;
+    margin-left: 6px;
+    overflow-x: scroll;
+    gap: 6px;
+    border-radius: 10px;
+  }
+  #main {
+    background-color: transparent;
+  }
+  #music_bottom_extender {
+    padding-bottom: 15px;
+    padding-left: 0px;
+    left: 6px;
+    margin-left: 0px;
+    width: 100%;
+    z-index: 99999;
+    bottom: 58px;
+  }
+  #music_bottom {
+    width: calc(100% - 24px);
+  }
+  #music {
+    margin-left: 6px;
+    margin-top: 0px;
+  }
+  #music_cover {
+    border-radius: 10px 10px 6px 6px;
+  }
+  #music_progress_bar_back {
+    position: absolute;
+    border-radius: 0px 0px 10px 10px;
+    bottom: 10px;
+    width: 44px;
+  }
+  #music_progress_bar {
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .gallery_column {
+    display: none;
+  }
+
+  #settings_page {
+    bottom: 54px;
+    left: -64px;
+  }
+
+  #tabs_oritentation {
+    display: none;
+  }
+
+  #sidebar_oritentation_mobile {
+    display: flex !important;
+  }
+
+  #sidebar_oritentation {
+    display: none;
+  }
+
+  #mobile_column {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .gallery_column {
+    display: none;
+  }
+
+  .gallery_image:last-child {
+    margin-bottom: -5px;
+  }
+}

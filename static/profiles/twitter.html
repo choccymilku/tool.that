@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <link rel="icon" type="image/x-icon" href="./styles/icon.png">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/text.css">
+    <link rel="stylesheet" href="../styles/reactive.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+    <link rel="stylesheet" href="../fonts/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+<style>
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently */
+}
+
+.disabledrag {
+   -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+   -user-drag: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px; 
+}
+
+.clickable {display: block;}
+</style>
+
+</head>
+<body id="body" class="noselect">
+
+  <div id="search">
+    <div id="search_bar">
+
+      <a href="./profiles.html">
+        <div class="tool_toolbar back"></div>
+        <div class="tool_toolbar searching"></div>
+      </a>
+
+      <div id="search_text">
+        <input id="search_input" type="text" placeholder="who to search?">
+      </div>
+
+      <div class="tool_toolbar screenshot"></div>
+
+      <div id="right_side">
+          <div class="tool_toolbar privacy"></div>
+          <div class="tool_toolbar terms"></div>
+      </div>
+
+    </div>
+</div>
+
+  <div id="main_wrapper">
+    <div id="main_scroll">
+      <div id="main">
+
+        <div class="block_tool block_tool_full">
+            <img id="banner" src="../styles/blankbanner.png"></img>
+
+            <div id="left_pane">
+                <div id="left_pane_inner">
+                    <img id="pfp" src="../styles/blank.png"></img>
+
+                    <div id="display">display</div>
+                    <div id="handle">@user</div>
+                    <div id="bio">sup bruh</div>
+                    <div id="location">
+                        <div class="icon icon_location"></div>
+                        <div class="text">your mom</div>
+                    </div>
+                    <div id="joined">
+                        <div class="icon icon_joined"></div>
+                        <div class="text">joined 2021</div>
+                    </div>
+        
+                    <div class="twitter_inline">
+                        <div id="tweets">
+                            <div class="icon icon_location"></div>
+                            <div class="text">your mom</div>
+                        </div>
+                        <div id="followers">
+                            <div class="icon icon_joined"></div>
+                            <div class="text">joined 2021</div>
+                        </div>
+                        <div id="following">
+                            <div class="icon icon_location"></div>
+                            <div class="text">your mom</div>
+                        </div>
+                        <div id="likes">
+                            <div class="icon icon_joined"></div>
+                            <div class="text">joined 2021</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      </div>
+    </div>
+  </div>
+
+<script src="../javascript/config.js"></script>
+<script src="../javascript/referer.js"></script>
+<script src="../javascript/svgnator.js"></script>
+<script src="../javascript/gettwitter.js"></script>
+
+</body>
+</html>
