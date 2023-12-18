@@ -88,4 +88,6 @@ def calculate_bitrate(video_path, target_size):
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
     os.makedirs('output', exist_ok=True)
-    app.run(debug=True, port=5001)  # Use a different port, for example, 5001
+    # Use the following command to run the app with Gunicorn
+    # gunicorn -w 4 -b 0.0.0.0:5001 main:app
+    app.run(debug=False, port=5001)
