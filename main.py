@@ -8,45 +8,15 @@ from flask import jsonify
 import time
 import shutil
 
-def find_ffprobe():
-    # Try to find ffprobe in the system's PATH
-    ffprobe_path = shutil.which('ffprobe')
-
-    if ffprobe_path is not None:
-        return ffprobe_path
-    else:
-        # You might need to provide additional paths or directories to search
-        possible_locations = ['/usr/bin/ffprobe', '/usr/local/bin/ffprobe']
-        for location in possible_locations:
-            if shutil.which(location):
-                return location
-
-    return None
-
-# Find ffprobe
-ffprobe_path = find_ffprobe()
-
-if ffprobe_path is not None:
-    # Run ffprobe -version
-    try:
-        result = subprocess.run([ffprobe_path, '-version'], capture_output=True, text=True, check=True)
-        # Print the output
-        print(result.stdout)
-    except subprocess.CalledProcessError as e:
-        # Print any errors
-        print(f"Error running ffprobe: {e.stderr}")
-else:
-    print("ffprobe not found. Please provide the correct path.")
-
-
 app = Flask(__name__)
 CORS(app)  # Add this line to enable CORS for all routes
+
+ffprobe_path = 'ffprobe'  # Path to ffprobe on your machine
 
 @app.route('/')
 def index():
   # Return the index page ../index.html (outside of the tools/compressor folder)
   return render_template('index.html')
-
 
 def generate_random_filename():
   return ''.join(random.choices(string.ascii_letters + string.digits, k=16))
