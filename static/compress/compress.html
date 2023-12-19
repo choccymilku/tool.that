@@ -23,7 +23,7 @@
 </head>
 <body>
     <h1>Video Compressor</h1>
-    <form id="upload-form" action="http://127.0.0.1:5001/compress" method="post" enctype="multipart/form-data">
+    <form id="upload-form" action="/compress" method="post" enctype="multipart/form-data">
         <label for="video">Upload Video:</label>
         <input type="file" name="video" accept="video/*" required onchange="displayVideoInfo()">
         <br>
@@ -104,7 +104,7 @@ function compressVideo() {
     progressBar.style.display = 'block';
 
     // Submit the form asynchronously using Fetch API
-    fetch('http://127.0.0.1:5001/compress', {
+    fetch('/compress', {
         method: 'POST',
         body: new FormData(form),
     })
@@ -136,7 +136,7 @@ function compressVideo() {
         window.URL.revokeObjectURL(url);
 
         // Now, inform the server to delete the file
-        fetch('http://127.0.0.1:5001/delete-file', {
+        fetch('/delete-file', {
             method: 'POST',
             body: JSON.stringify({ filename: originalFilename }),
             headers: {
