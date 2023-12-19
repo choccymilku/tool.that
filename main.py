@@ -8,32 +8,20 @@ from flask import jsonify
 import time
 import shutil
 
-# on startup run ffprobe -version to check if ffmpeg is installed
-print("Checking if ffmpeg is installed...")
-try:
-  subprocess.run(['ffprobe', '-version'])
-# if not installed, install ffmpeg with pip
-except FileNotFoundError:
-    print("ffmpeg not found. Installing ffmpeg...")
-    subprocess.run(['pip', 'install', 'ffmpeg-python'])
-    subprocess.run(['pip', 'install', 'ffmpeg'])
-    print("ffmpeg installed successfully.")
-
-    print("Checking ffprobe path...")
-    subprocess.run(['which', 'ffprobe'])
-
-    try:
-      subprocess.run(['which', 'ffprobe'])
-    except FileNotFoundError:
-      print("ffprobe not found. Installing ffprobe...")
-      subprocess.run(['pip', 'install', 'ffprobe'])
-      print("ffprobe installed successfully.")
-      print("Checking ffprobe path...")
-      subprocess.run(['which', 'ffprobe'])
-      print("ffprobe path checked successfully.")
-    else:
-      print("ffprobe already installed.")
-
+# on startup run ffmpeg -version to check if ffmpeg is installed
+subprocess.run(['pip', 'install', 'ffmpeg-python'])
+subprocess.run(['pip', 'install', 'ffmpeg'])
+# once install, print version
+subprocess.run(['ffmpeg', '-version'])
+# check for ffprobe
+subprocess.run(['pip', 'install', 'ffprobe'])
+subprocess.run(['ffprobe', '-version'])
+# check for ffprobe path
+subprocess.run(['pip', 'install', 'ffprobe_path'])
+# find ffprobe path
+print(shutil.which('ffprobe'))
+# assign ffprobe path
+os.environ['FFPROBE_PATH'] = shutil.which('ffprobe')
 
 
 app = Flask(__name__)
@@ -97,24 +85,24 @@ def compress():
                    as_attachment=True,
                    download_name=f'{original_filename}.mp4')
 
-
 def get_video_info(video_path):
-  result = subprocess.run([
-      'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
-      'stream=width,height,duration,bit_rate', '-of',
-      'default=noprint_wrappers=1:nokey=1', video_path
-  ],
-                          stdout=subprocess.PIPE,
-                          text=True)
+    ffprobe_path = os.getenv('FFPROBE_PATH', 'ffprobe')
+    result = subprocess.run([
+        ffprobe_path, '-v', 'error', '-select_streams', 'v:0', '-show_entries',
+        'stream=width,height,duration,bit_rate', '-of',
+        'default=noprint_wrappers=1:nokey=1', video_path
+    ],
+    stdout=subprocess.PIPE,
+    text=True)
 
-  width, height, duration, bit_rate = map(float, result.stdout.strip().split())
+    width, height, duration, bit_rate = map(float, result.stdout.strip().split())
 
-  return {
-      'width': int(width),
-      'height': int(height),
-      'duration': duration,
-      'bit_rate': bit_rate
-  }
+    return {
+        'width': int(width),
+        'height': int(height),
+        'duration': duration,
+        'bit_rate': bit_rate
+    }
 
 
 def print_video_info(video_info):
