@@ -11,9 +11,19 @@ import shutil
 # on startup run ffmpeg -version to check if ffmpeg is installed
 subprocess.run(['pip', 'install', 'ffmpeg-python'])
 subprocess.run(['pip', 'install', 'ffmpeg'])
+subprocess.run(['pip', 'install', 'ffmpeg_path'])
+# find ffmpeg path
+print(shutil.which('ffmpeg'))
 # once install, print version
 subprocess.run(['ffmpeg', '-version'])
-# check for ffprobe
+# check for ffmpeg path
+
+
+
+
+
+
+""" # check for ffprobe
 subprocess.run(['pip', 'install', 'ffprobe'])
 subprocess.run(['ffprobe', '-version'])
 # check for ffprobe path
@@ -21,7 +31,7 @@ subprocess.run(['pip', 'install', 'ffprobe_path'])
 # find ffprobe path
 print(shutil.which('ffprobe'))
 # assign ffprobe path
-os.environ['FFPROBE_PATH'] = shutil.which('ffprobe')
+os.environ['FFPROBE_PATH'] = shutil.which('ffprobe') """
 
 
 app = Flask(__name__)
