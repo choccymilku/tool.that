@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, send_file
+from flask_cors import CORS
 import subprocess
 import os
 import string
@@ -7,6 +8,7 @@ from flask import jsonify
 import time
 
 app = Flask(__name__)
+CORS(app)  # Add this line to enable CORS for all routes
 
 @app.route('/')
 def index():
