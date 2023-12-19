@@ -9,10 +9,8 @@ import time
 import shutil
 
 # run ffprobe -version to get the path
-ffprobe_path = '/app/vendor/ffprobe'
+ffprobe_path = 'C:/ffmpeg/bin/ffprobe.exe'
 print(ffprobe_path)
-
-ffprobe_path = '/nix/store/jh74r2j4ac3rh56ysmk87dnjzk6gc5vk-ffmpeg-headless-6.0-bin/bin/ffprobe'
 
 
 app = Flask(__name__)
