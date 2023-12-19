@@ -9,14 +9,14 @@ import time
 import shutil
 
 # on startup run ffmpeg -version to check if ffmpeg is installed
+subprocess.run(['pip', 'install', 'flask'])
+subprocess.run(['pip', 'install', 'flask_cors'])
 subprocess.run(['pip', 'install', 'ffmpeg-python'])
-subprocess.run(['pip', 'install', 'ffmpeg'])
 subprocess.run(['pip', 'install', 'ffmpeg_path'])
+# install ffmpeg using sudo apt
+subprocess.run(['sudo', 'apt', 'install', 'ffmpeg'])
 # find ffmpeg path
 print(shutil.which('ffmpeg'))
-# once install, print version
-subprocess.run(['ffmpeg', '-version'])
-# check for ffmpeg path
 
 
 
