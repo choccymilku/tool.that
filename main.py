@@ -8,10 +8,18 @@ from flask import jsonify
 import time
 import shutil
 
+# on startup run ffprobe -version to check if ffmpeg is installed
+print("Checking if ffmpeg is installed...")
+try:
+  subprocess.run(['ffprobe', '-version'])
+except Exception as e:
+    print(f"Error: {e}")
+    print("Please install ffmpeg first.")
+    exit(1)
+print("ffmpeg is installed.")
+
 app = Flask(__name__)
 CORS(app)  # Add this line to enable CORS for all routes
-
-ffprobe_path = 'ffprobe'  # Path to ffprobe on your machine
 
 @app.route('/')
 def index():
@@ -74,7 +82,7 @@ def compress():
 
 def get_video_info(video_path):
   result = subprocess.run([
-      ffprobe_path, '-v', 'error', '-select_streams', 'v:0', '-show_entries',
+      'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
       'stream=width,height,duration,bit_rate', '-of',
       'default=noprint_wrappers=1:nokey=1', video_path
   ],
@@ -114,6 +122,5 @@ def calculate_bitrate(video_path, target_size):
 if __name__ == '__main__':
   os.makedirs('uploads', exist_ok=True)
   os.makedirs('output', exist_ok=True)
-  # Use the following command to run the app with Gunicorn
-  # gunicorn -w 4 -b 0.0.0.0:$PORT main:app
-  app.run(host='0.0.0.0', debug=True, port=int(os.environ.get('PORT', 5000)))
+  # run with gunicorn, port 5000
+  app.run(host='0.0.0.0', debug=True, port=5000)
