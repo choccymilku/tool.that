@@ -8,8 +8,6 @@ from flask import jsonify
 import time
 import shutil
 
-print os.environ['PATH']
-
 # on startup run ffmpeg -version to check if ffmpeg is installed
 subprocess.run(['pip', 'install', 'flask'])
 subprocess.run(['pip', 'install', 'flask_cors'])
