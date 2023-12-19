@@ -18,7 +18,7 @@ def index():
 def generate_random_filename():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=16))
 
-@app.route('/delete-file', methods=['POST'])
+@app.route('https://toolthat.hop.sh//delete-file', methods=['POST'])
 def delete_file():
     data = request.get_json()
     filename = data.get('filename')
@@ -35,7 +35,8 @@ def delete_file():
     else:
         return jsonify({'error': 'Filename not provided'}), 400
 
-@app.route('/compress', methods=['POST'])
+# must work for server
+@app.route('https://toolthat.hop.sh/compress', methods=['POST'])
 def compress():
     video_file = request.files['video']
     target_size = int(request.form['target_size'])
