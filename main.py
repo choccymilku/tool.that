@@ -18,6 +18,20 @@ except FileNotFoundError:
     subprocess.run(['pip', 'install', 'ffmpeg-python'])
     subprocess.run(['pip', 'install', 'ffmpeg'])
     print("ffmpeg installed successfully.")
+    # check ffprobe path and version
+    print("Checking ffprobe version...")
+    subprocess.run(['ffprobe', '-version'])
+    print("ffprobe version checked successfully.")
+    print("Checking ffprobe path...")
+    subprocess.run(['which', 'ffprobe'])
+    print("ffprobe path checked successfully.")
+    print("Checking ffmpeg version...")
+    subprocess.run(['ffmpeg', '-version'])
+    print("ffmpeg version checked successfully.")
+    print("Checking ffmpeg path...")
+    subprocess.run(['which', 'ffmpeg'])
+    print("ffmpeg path checked successfully.")
+    
 
 app = Flask(__name__)
 CORS(app)  # Add this line to enable CORS for all routes
