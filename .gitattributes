@@ -2,3 +2,5 @@
 * text=auto
 # set language as python
 *.py linguist-language=python
+# ignore html files
+*.html linguist-vendored
