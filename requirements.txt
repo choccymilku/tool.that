@@ -1,7 +1,5 @@
 Flask==2.0.1
 Werkzeug==2.0.2
 gunicorn==20.1.0
-Flask_cors==3.0.10
+Flask-Cors==3.0.10
 ffmpeg-python==0.2.0
-ffmpeg==1.4
-ffprobe==0.5

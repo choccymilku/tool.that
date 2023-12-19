@@ -93,4 +93,4 @@ if __name__ == '__main__':
     os.makedirs('output', exist_ok=True)
     # Use the following command to run the app with Gunicorn
     # gunicorn -w 4 -b 0.0.0.0:$PORT main:app
-    app.run(host='0.0.0.0', debug=True, port=int(os.environ.get('PORT', 5001)))
+    app.run(host='0.0.0.0', debug=True, port=int(os.environ.get('PORT', 5000)))
