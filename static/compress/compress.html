@@ -32,7 +32,7 @@
         <label for="target_size">Target File Size (MB):</label>
         <input type="number" name="target_size" id="target_size" required>
         <br>
-        <button type="button" onclick="compressVideo()">Compress Video</button>
+        <button type="button" name="compress" onclick="compressVideo()">Compress Video</button>
         <p id="compressing-message" style="display: none;">Compressing...</p>
         <div id="progress-bar">
             <div id="progress"></div>
@@ -90,18 +90,17 @@ function displayVideoInfo() {
     }
 }
 
-
-
-
 function compressVideo() {
     const form = document.getElementById('upload-form');
     const compressingMessage = document.getElementById('compressing-message');
     const progressBar = document.getElementById('progress-bar');
-    const progress = document.getElementById('progress');
+
+    document.querySelector('button[name="compress"]').disabled = true;
 
     // Show "Compressing" message and progress bar
     compressingMessage.style.display = 'block';
     progressBar.style.display = 'block';
+    console.log('Compressing...');
 
     // Submit the form asynchronously using Fetch API
     fetch('/compress', {
@@ -148,8 +147,9 @@ function compressVideo() {
                 throw new Error(`Error: ${response.status} - ${response.statusText}`);
             }
             console.log('File deleted on the server.');
-            // reload the page
-            window.location.reload();
+            // clear html
+            document.getElementById('video-info').innerHTML = '';
+            document.querySelector('button[name="compress"]').disabled = false;
         })
         .catch(error => {
             console.error(error);
