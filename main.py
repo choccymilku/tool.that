@@ -12,11 +12,12 @@ import shutil
 print("Checking if ffmpeg is installed...")
 try:
   subprocess.run(['ffprobe', '-version'])
-except Exception as e:
-    print(f"Error: {e}")
-    print("Please install ffmpeg first.")
-    exit(1)
-print("ffmpeg is installed.")
+# if not installed, install ffmpeg with pip
+except FileNotFoundError:
+    print("ffmpeg not found. Installing ffmpeg...")
+    subprocess.run(['pip', 'install', 'ffmpeg-python'])
+    subprocess.run(['pip', 'install', 'ffmpeg'])
+    print("ffmpeg installed successfully.")
 
 app = Flask(__name__)
 CORS(app)  # Add this line to enable CORS for all routes
