@@ -8,12 +8,12 @@ from flask import jsonify
 import time
 import shutil
 
-# get ffprovbe path
-ffprobe_path = shutil.which('ffprobe')
+# run ffprobe -version to get the path
+ffprobe_path = '/app/vendor/ffprobe'
 print(ffprobe_path)
 
-""" # Replace this path with the actual path you obtained
-ffprobe_path = '/nix/store/jh74r2j4ac3rh56ysmk87dnjzk6gc5vk-ffmpeg-headless-6.0-bin/bin/ffprobe' """
+ffprobe_path = '/nix/store/jh74r2j4ac3rh56ysmk87dnjzk6gc5vk-ffmpeg-headless-6.0-bin/bin/ffprobe'
+
 
 app = Flask(__name__)
 CORS(app)  # Add this line to enable CORS for all routes
